@@ -15,7 +15,7 @@
 
 #define ANIMATIONKEY_SHOW           @"animateContentsShow"
 
-#define ROTATEANGLE                 -15 * M_PI/180
+#define ROTATEANGLE                 -5 * M_PI/180
 
 
 @interface GLCFootBar ()
@@ -99,7 +99,7 @@
 - (void)buttonClickAnimation:(FootBarItemType)footBarItemType
 {
     CATransform3D transformblank = CATransform3DIdentity;
-    transformblank.m34 = -5 / 500.0;
+    transformblank.m34 = -10 / 500.0;
     transformblank = CATransform3DRotate(transformblank, ROTATEANGLE, 1, 0, 0);
     
     int index = footBarItemType - 1;
@@ -162,10 +162,10 @@
 {
     CATransform3D transform = footbarItem.layer.transform;
     [UIView animateWithDuration:.075 animations:^{
-        footbarItem.layer.transform = CATransform3DRotate(footbarItem.layer.transform, -5*M_PI/180, 1, 0, 0);
+        footbarItem.layer.transform = CATransform3DRotate(footbarItem.layer.transform, -2*M_PI/180, 1, 0, 0);
     } completion:^(BOOL finished){
         [UIView animateWithDuration:.15 animations:^{
-            footbarItem.layer.transform = CATransform3DRotate(footbarItem.layer.transform, 10*M_PI/180, 1, 0, 0);
+            footbarItem.layer.transform = CATransform3DRotate(footbarItem.layer.transform, 4*M_PI/180, 1, 0, 0);
         } completion:^(BOOL finished1) {
             [UIView animateWithDuration:.075 animations:^{
                 footbarItem.layer.transform = transform;
