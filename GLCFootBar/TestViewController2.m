@@ -22,14 +22,23 @@
         
         self.view.frame = CGRectMake(0, 0, 320, 480 - 20 - 49);
         self.view.backgroundColor = [UIColor blueColor];
+        
     }
     return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    self.title = @"test2";
 }
 
 - (void)didReceiveMemoryWarning

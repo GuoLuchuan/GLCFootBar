@@ -22,10 +22,10 @@
     UIView *_mainView;
     GLCFootBar *_footBar;
     
-    TestViewController1 *_testViewController1;
-    TestViewController2 *_testViewController2;
+    UINavigationController *_testViewController1;
+    UINavigationController *_testViewController2;
     UINavigationController *_testViewController3;
-    TestViewController4 *_testViewController4;
+    UINavigationController *_testViewController4;
 }
 @end
 
@@ -52,10 +52,20 @@
         [self.view addSubview:_mainView];
         [self.view addSubview:_footBar];
         
-        _testViewController1 = [[TestViewController1 alloc] init];
-        _testViewController2 = [[TestViewController2 alloc] init];
-        _testViewController3 = [[TestViewController3 alloc] init];
-        _testViewController4 = [[TestViewController4 alloc] init];
+        _testViewController1 = [[UINavigationController alloc] initWithRootViewController:[[TestViewController1 alloc] init]];
+        _testViewController1.view.frame = [_mainView bounds];
+        _testViewController1.navigationBarHidden = YES;
+
+        _testViewController2 = [[UINavigationController alloc] initWithRootViewController:[[TestViewController2 alloc] init]];
+        _testViewController2.view.frame = [_mainView bounds];
+
+        _testViewController3 = [[UINavigationController alloc] initWithRootViewController:[[TestViewController3 alloc] init]];
+        _testViewController3.view.frame = [_mainView bounds];
+
+        _testViewController4 = [[UINavigationController alloc] initWithRootViewController:[[TestViewController4 alloc] init]];
+        _testViewController4.view.frame = [_mainView bounds];
+        _testViewController4.navigationBarHidden = YES;
+
         
     }
     return self;
@@ -64,30 +74,23 @@
 - (void)test:(UIButton *)sender
 {
     NSLog(@"here");
-    
+        
     for (UIView *view in [_mainView subviews]) {
         [view removeFromSuperview];
     }
     
     switch (sender.tag) {
         case 0:
+
             [_mainView addSubview: _testViewController1.view];
             break;
         case 1:
             [_mainView addSubview: _testViewController2.view];
+
             break;
         case 2:
         {
-            _testViewController3.navigationController.title = @"test";
-            self.navigationController.title = @"test";
-            _testViewController3.title = @"11111";
-            
-            _testViewController3.navigationItem.title = @"123123";
-            
-            self.title = @"22222";
-            
             [_mainView addSubview: _testViewController3.view];
-            
             break;
             
         }
@@ -97,10 +100,7 @@
         default:
             break;
     }
-    
-//    _mainView = _testViewController3.view;
-    
-    
+
     CATransition *transition = [[CATransition alloc] init];
     transition.duration = .5;
     

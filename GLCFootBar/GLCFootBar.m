@@ -15,7 +15,7 @@
 
 #define ANIMATIONKEY_SHOW           @"animateContentsShow"
 
-#define ROTATEANGLE                 -20 * M_PI/180
+#define ROTATEANGLE                 -10 * M_PI/180
 
 
 @interface GLCFootBar ()

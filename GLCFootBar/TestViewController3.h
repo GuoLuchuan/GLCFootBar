@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TestViewController3 : UINavigationController
+@interface TestViewController3 : UIViewController
 
-@property (nonatomic) UIViewController *rootViewController;
 
 @end

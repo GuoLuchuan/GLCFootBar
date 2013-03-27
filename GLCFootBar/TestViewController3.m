@@ -7,6 +7,7 @@
 //
 
 #import "TestViewController3.h"
+#import "TestViewController1.h"
 
 @interface TestViewController3 ()
 
@@ -20,30 +21,37 @@
     self = [super init];
     if (self) {
         // Custom initialization
-        
-//        self.navigationBarHidden = NO;
-        
-        
-        
+
         self.view.frame = CGRectMake(0, 0, 320, 480 - 20 - 49);
         self.view.backgroundColor = [UIColor redColor];
+        
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(50, 50, 50, 50)];
+        btn.backgroundColor = [UIColor blackColor];
+        [btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:btn];
 
     }
     return self;
 }
 
+- (void)test
+{
+    NSAssert(self.navigationController, @" self.navigationController is nil , so you can not push in another controller ");
+    
+    [self.navigationController pushViewController:[[TestViewController1 alloc] init] animated:YES];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    self.title = @"1111";
-    
-    self.navigationItem.title = @"22222";
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.title = @"test3";
+    
 	// Do any additional setup after loading the view.
 }
 
