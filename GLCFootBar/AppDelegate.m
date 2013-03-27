@@ -15,11 +15,6 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
-    
-//    GLCFootBar *footBar = [GLCFootBar footBarWithType:FootBarTypeFlip];
-//    
-//    footBar.frame = CGRectMake(0, 480 - 20 - 49, footBar.frame.size.width,footBar.frame.size.height);
-    
 
     UINavigationController *rootViewController = [[UINavigationController alloc] initWithRootViewController:[[RootViewController alloc] init]];
     rootViewController.navigationBarHidden = YES;

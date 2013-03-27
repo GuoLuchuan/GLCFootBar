@@ -10,4 +10,9 @@
 
 @interface GLCBaseNavigationController : UINavigationController
 
+@property (nonatomic, readonly) BOOL isShown;
+
+- (void)showViewOn:(UIView *)superView;
+- (void)dismissViewOnSuperView;
+
 @end

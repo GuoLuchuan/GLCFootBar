@@ -13,8 +13,8 @@
 		BC8D23B817014757007541F4 /* TestViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8D23B717014757007541F4 /* TestViewController3.m */; };
 		BC8D23BB1701478B007541F4 /* TestViewController4.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8D23BA1701478B007541F4 /* TestViewController4.m */; };
 		BC8D23BE170148B5007541F4 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8D23BD170148B5007541F4 /* RootViewController.m */; };
-		BC918C89170297C600EF3575 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC918C88170297C600EF3575 /* BaseNavigationController.m */; };
 		BC918C8C17029C7000EF3575 /* GLCFootbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC918C8B17029C7000EF3575 /* GLCFootbarController.m */; };
+		BC918C8F1702BB9800EF3575 /* GLCBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC918C8E1702BB9800EF3575 /* GLCBaseNavigationController.m */; };
 		BC932A921700013F00F89B84 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC932A911700013F00F89B84 /* UIKit.framework */; };
 		BC932A941700013F00F89B84 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC932A931700013F00F89B84 /* Foundation.framework */; };
 		BC932A961700013F00F89B84 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC932A951700013F00F89B84 /* CoreGraphics.framework */; };
@@ -41,10 +41,10 @@
 		BC8D23BA1701478B007541F4 /* TestViewController4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController4.m; sourceTree = "<group>"; };
 		BC8D23BC170148B5007541F4 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		BC8D23BD170148B5007541F4 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		BC918C87170297C600EF3575 /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
-		BC918C88170297C600EF3575 /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
 		BC918C8A17029C7000EF3575 /* GLCFootbarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLCFootbarController.h; sourceTree = "<group>"; };
 		BC918C8B17029C7000EF3575 /* GLCFootbarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLCFootbarController.m; sourceTree = "<group>"; };
+		BC918C8D1702BB9800EF3575 /* GLCBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLCBaseNavigationController.h; sourceTree = "<group>"; };
+		BC918C8E1702BB9800EF3575 /* GLCBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLCBaseNavigationController.m; sourceTree = "<group>"; };
 		BC932A8E1700013F00F89B84 /* GLCFootBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GLCFootBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC932A911700013F00F89B84 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BC932A931700013F00F89B84 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -89,16 +89,28 @@
 				BC8D23B717014757007541F4 /* TestViewController3.m */,
 				BC8D23B91701478B007541F4 /* TestViewController4.h */,
 				BC8D23BA1701478B007541F4 /* TestViewController4.m */,
-				BC918C87170297C600EF3575 /* BaseNavigationController.h */,
-				BC918C88170297C600EF3575 /* BaseNavigationController.m */,
 			);
 			name = TestViewController;
+			sourceTree = "<group>";
+		};
+		BC918C901702BCE100EF3575 /* GLCFootBar */ = {
+			isa = PBXGroup;
+			children = (
+				BC918C8D1702BB9800EF3575 /* GLCBaseNavigationController.h */,
+				BC918C8E1702BB9800EF3575 /* GLCBaseNavigationController.m */,
+				BC932AAE1700018200F89B84 /* GLCFootBar.h */,
+				BC932AAF1700018200F89B84 /* GLCFootBar.m */,
+				BC8D23A917004410007541F4 /* GLCFootBarItem.h */,
+				BC8D23AA17004410007541F4 /* GLCFootBarItem.m */,
+				BC918C8A17029C7000EF3575 /* GLCFootbarController.h */,
+				BC918C8B17029C7000EF3575 /* GLCFootbarController.m */,
+			);
+			name = GLCFootBar;
 			sourceTree = "<group>";
 		};
 		BC932A851700013F00F89B84 = {
 			isa = PBXGroup;
 			children = (
-				BC932AB11700148000F89B84 /* QuartzCore.framework */,
 				BC932A971700013F00F89B84 /* GLCFootBar */,
 				BC932A901700013F00F89B84 /* Frameworks */,
 				BC932A8F1700013F00F89B84 /* Products */,
@@ -116,6 +128,7 @@
 		BC932A901700013F00F89B84 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BC932AB11700148000F89B84 /* QuartzCore.framework */,
 				BC932A911700013F00F89B84 /* UIKit.framework */,
 				BC932A931700013F00F89B84 /* Foundation.framework */,
 				BC932A951700013F00F89B84 /* CoreGraphics.framework */,
@@ -126,18 +139,13 @@
 		BC932A971700013F00F89B84 /* GLCFootBar */ = {
 			isa = PBXGroup;
 			children = (
+				BC918C901702BCE100EF3575 /* GLCFootBar */,
 				BC8D23AF1701460A007541F4 /* TestViewController */,
 				BC932AA01700014000F89B84 /* AppDelegate.h */,
 				BC932AA11700014000F89B84 /* AppDelegate.m */,
-				BC932A981700013F00F89B84 /* Supporting Files */,
-				BC932AAE1700018200F89B84 /* GLCFootBar.h */,
-				BC932AAF1700018200F89B84 /* GLCFootBar.m */,
-				BC8D23A917004410007541F4 /* GLCFootBarItem.h */,
-				BC8D23AA17004410007541F4 /* GLCFootBarItem.m */,
 				BC8D23BC170148B5007541F4 /* RootViewController.h */,
 				BC8D23BD170148B5007541F4 /* RootViewController.m */,
-				BC918C8A17029C7000EF3575 /* GLCFootbarController.h */,
-				BC918C8B17029C7000EF3575 /* GLCFootbarController.m */,
+				BC932A981700013F00F89B84 /* Supporting Files */,
 			);
 			path = GLCFootBar;
 			sourceTree = "<group>";
@@ -230,8 +238,8 @@
 				BC8D23B817014757007541F4 /* TestViewController3.m in Sources */,
 				BC8D23BB1701478B007541F4 /* TestViewController4.m in Sources */,
 				BC8D23BE170148B5007541F4 /* RootViewController.m in Sources */,
-				BC918C89170297C600EF3575 /* BaseNavigationController.m in Sources */,
 				BC918C8C17029C7000EF3575 /* GLCFootbarController.m in Sources */,
+				BC918C8F1702BB9800EF3575 /* GLCBaseNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,12 +11,7 @@
 #import "GLCFootBar.h"
 #import "GLCFootBarItem.h"
 
-#import "TestViewController1.h"
-#import "TestViewController2.h"
-#import "TestViewController3.h"
-#import "TestViewController4.h"
-
-#import "BaseNavigationController.h"
+#import "GLCBaseNavigationController.h"
 
 #import <QuartzCore/QuartzCore.h>
 
@@ -63,18 +58,18 @@
 {
     for (int i = 0; i < [_footbarArray count]; i++) {
         if (i == index) {
-            if ([(BaseNavigationController *)[_footbarArray objectAtIndex:i] isShown]) {
-                [(BaseNavigationController *)[_footbarArray objectAtIndex:i]  popToRootViewControllerAnimated:YES];
+            if ([(GLCBaseNavigationController *)[_footbarArray objectAtIndex:i] isShown]) {
+                [(GLCBaseNavigationController *)[_footbarArray objectAtIndex:i]  popToRootViewControllerAnimated:YES];
             }
             else
             {
-                [(BaseNavigationController *)[_footbarArray objectAtIndex:i]  showViewOn:_mainView];
+                [(GLCBaseNavigationController *)[_footbarArray objectAtIndex:i]  showViewOn:_mainView];
             }
         }
         else
         {
-            if ([(BaseNavigationController *)[_footbarArray objectAtIndex:i]  isShown]) {
-                [(BaseNavigationController *)[_footbarArray objectAtIndex:i]  dismissViewOnSuperView];
+            if ([(GLCBaseNavigationController *)[_footbarArray objectAtIndex:i]  isShown]) {
+                [(GLCBaseNavigationController *)[_footbarArray objectAtIndex:i]  dismissViewOnSuperView];
             }
         }
     }

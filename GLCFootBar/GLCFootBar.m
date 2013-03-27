@@ -15,7 +15,7 @@
 
 #define ANIMATIONKEY_SHOW           @"animateContentsShow"
 
-#define ROTATEANGLE                 -10 * M_PI/180
+#define ROTATEANGLE                 -15 * M_PI/180
 
 
 @interface GLCFootBar ()
@@ -79,6 +79,11 @@
         ((GLCFootBarItem *)[_footBarItemList objectAtIndex:2]).backgroundColor = [UIColor redColor];
         
         ((GLCFootBarItem *)[_footBarItemList objectAtIndex:3]).backgroundColor = [UIColor yellowColor];
+        
+        [((GLCFootBarItem *)[_footBarItemList objectAtIndex:0]) setTitle:@"test1" forState:UIControlStateNormal];
+        [((GLCFootBarItem *)[_footBarItemList objectAtIndex:1]) setTitle:@"test2" forState:UIControlStateNormal];
+        [((GLCFootBarItem *)[_footBarItemList objectAtIndex:2]) setTitle:@"test3" forState:UIControlStateNormal];
+        [((GLCFootBarItem *)[_footBarItemList objectAtIndex:3]) setTitle:@"test4" forState:UIControlStateNormal];
         
         _shadowImage = [self shadowImage:CGSizeMake(80, 49)];
         
@@ -156,13 +161,13 @@
 - (void)shakeAnimation:(GLCFootBarItem *)footbarItem
 {
     CATransform3D transform = footbarItem.layer.transform;
-    [UIView animateWithDuration:.1 animations:^{
+    [UIView animateWithDuration:.075 animations:^{
         footbarItem.layer.transform = CATransform3DRotate(footbarItem.layer.transform, -5*M_PI/180, 1, 0, 0);
     } completion:^(BOOL finished){
-        [UIView animateWithDuration:.2 animations:^{
-            footbarItem.layer.transform = CATransform3DRotate(footbarItem.layer.transform, 15*M_PI/180, 1, 0, 0);
+        [UIView animateWithDuration:.15 animations:^{
+            footbarItem.layer.transform = CATransform3DRotate(footbarItem.layer.transform, 10*M_PI/180, 1, 0, 0);
         } completion:^(BOOL finished1) {
-            [UIView animateWithDuration:.1 animations:^{
+            [UIView animateWithDuration:.075 animations:^{
                 footbarItem.layer.transform = transform;
             } completion:^(BOOL finished) {
                 
@@ -183,16 +188,13 @@
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     CGFloat locations[] = { 0.0, 1.0 };
     
-    //    CGColorRef startColor = [UIColor colorWithWhite:.8 alpha:.6].CGColor;
-//    CGColorRef startColor = [UIColor colorWithWhite:.1 alpha:.1].CGColor;
+//    CGColorRef startColor = [UIColor colorWithWhite:.8 alpha:.6].CGColor;
 //    CGColorRef endColor = [UIColor colorWithWhite:.1 alpha:.6].CGColor;
     
-//    //    CGColorRef startColor = [UIColor whiteColor].CGColor;
-//    //    CGColorRef endColor = [UIColor blackColor].CGColor;
     
-    
-    CGColorRef startColor = [UIColor darkGrayColor].CGColor;
-    CGColorRef endColor = [UIColor purpleColor].CGColor;
+    CGColorRef startColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.0].CGColor;
+//    CGColorRef endColor = [UIColor purpleColor].CGColor;
+    CGColorRef endColor = [UIColor colorWithRed:.1 green:.1 blue:.1 alpha:1.0].CGColor;
     
     NSArray *colors = [NSArray arrayWithObjects:(__bridge id)startColor, (__bridge id)endColor, nil];
     

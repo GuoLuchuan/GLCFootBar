@@ -10,6 +10,12 @@
 
 #import <QuartzCore/QuartzCore.h>
 
+@interface GLCFootBarItem ()
+{
+//    UILabel *_titleLabel;
+}
+@end
+
 @implementation GLCFootBarItem
 
 - (id)initWithFrame:(CGRect)frame
@@ -21,10 +27,16 @@
         self.layer.anchorPoint = CGPointMake(0.5, 0);
         self.center = CGPointMake(frame.size.width/2.0 + frame.origin.x, 0.0); //compensate for anchor offset
         
+//        _titleLabel = [[UILabel alloc] initWithFrame:CGRectInset(self.bounds, 0, 10)];
+//        _titleLabel.backgroundColor = [UIColor clearColor];
+//        _titleLabel.textAlignment = UITextAlignmentCenter;
+//        _titleLabel.textColor = [UIColor whiteColor];
+//        [self addSubview:_titleLabel];
+        
         _shadowImageView = [[UIImageView alloc] initWithFrame:self.bounds];
         _shadowImageView.opaque = NO;
         [self addSubview:_shadowImageView];
-        
+                
     }
     return self;
 }
