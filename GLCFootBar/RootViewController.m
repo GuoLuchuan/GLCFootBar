@@ -15,6 +15,8 @@
 #import "TestViewController3.h"
 #import "TestViewController4.h"
 
+#import "BaseNavigationController.h"
+
 #import <QuartzCore/QuartzCore.h>
 
 @interface RootViewController ()
@@ -22,10 +24,10 @@
     UIView *_mainView;
     GLCFootBar *_footBar;
     
-    UINavigationController *_testViewController1;
-    UINavigationController *_testViewController2;
-    UINavigationController *_testViewController3;
-    UINavigationController *_testViewController4;
+    BaseNavigationController *_testViewController1;
+    BaseNavigationController *_testViewController2;
+    BaseNavigationController *_testViewController3;
+    BaseNavigationController *_testViewController4;
 }
 @end
 
@@ -52,18 +54,14 @@
         [self.view addSubview:_mainView];
         [self.view addSubview:_footBar];
         
-        _testViewController1 = [[UINavigationController alloc] initWithRootViewController:[[TestViewController1 alloc] init]];
-        _testViewController1.view.frame = [_mainView bounds];
+        _testViewController1 = [[BaseNavigationController alloc] initWithRootViewController:[[TestViewController1 alloc] init]];
         _testViewController1.navigationBarHidden = YES;
 
-        _testViewController2 = [[UINavigationController alloc] initWithRootViewController:[[TestViewController2 alloc] init]];
-        _testViewController2.view.frame = [_mainView bounds];
+        _testViewController2 = [[BaseNavigationController alloc] initWithRootViewController:[[TestViewController2 alloc] init]];
 
-        _testViewController3 = [[UINavigationController alloc] initWithRootViewController:[[TestViewController3 alloc] init]];
-        _testViewController3.view.frame = [_mainView bounds];
+        _testViewController3 = [[BaseNavigationController alloc] initWithRootViewController:[[TestViewController3 alloc] init]];
 
-        _testViewController4 = [[UINavigationController alloc] initWithRootViewController:[[TestViewController4 alloc] init]];
-        _testViewController4.view.frame = [_mainView bounds];
+        _testViewController4 = [[BaseNavigationController alloc] initWithRootViewController:[[TestViewController4 alloc] init]];
         _testViewController4.navigationBarHidden = YES;
 
         
@@ -73,30 +71,99 @@
 
 - (void)test:(UIButton *)sender
 {
-    NSLog(@"here");
-        
-    for (UIView *view in [_mainView subviews]) {
-        [view removeFromSuperview];
-    }
-    
     switch (sender.tag) {
         case 0:
-
-            [_mainView addSubview: _testViewController1.view];
+        {
+            if ([_testViewController1 isShown]) {
+                [_testViewController1 popToRootViewControllerAnimated:YES];
+            }
+            else
+            {
+                if ([_testViewController2 isShown]) {
+                    [_testViewController2 dismissViewOnSuperView];
+                }
+                else if ([_testViewController3 isShown])
+                {
+                    [_testViewController3 dismissViewOnSuperView];
+                }
+                else if ([_testViewController4 isShown])
+                {
+                    [_testViewController4 dismissViewOnSuperView];
+                }
+                
+                [_testViewController1 showViewOn:_mainView];
+            }
             break;
+        }
         case 1:
-            [_mainView addSubview: _testViewController2.view];
-
+        {
+            if ([_testViewController2 isShown]) {
+                [_testViewController2 popToRootViewControllerAnimated:YES];
+            }
+            else
+            {
+                if ([_testViewController1 isShown]) {
+                    [_testViewController1 dismissViewOnSuperView];
+                }
+                else if ([_testViewController3 isShown])
+                {
+                    [_testViewController3 dismissViewOnSuperView];
+                }
+                else if ([_testViewController4 isShown])
+                {
+                    [_testViewController4 dismissViewOnSuperView];
+                }
+                
+                [_testViewController2 showViewOn:_mainView];
+            }
             break;
+        }
         case 2:
         {
-            [_mainView addSubview: _testViewController3.view];
+            if ([_testViewController3 isShown]) {
+                [_testViewController3 popToRootViewControllerAnimated:YES];
+            }
+            else
+            {
+                if ([_testViewController2 isShown]) {
+                    [_testViewController2 dismissViewOnSuperView];
+                }
+                else if ([_testViewController1 isShown])
+                {
+                    [_testViewController1 dismissViewOnSuperView];
+                }
+                else if ([_testViewController4 isShown])
+                {
+                    [_testViewController4 dismissViewOnSuperView];
+                }
+                
+                [_testViewController3 showViewOn:_mainView];
+            }
             break;
-            
         }
         case 3:
-            [_mainView addSubview: _testViewController4.view];
+        {
+            if ([_testViewController4 isShown]) {
+                [_testViewController4 popToRootViewControllerAnimated:YES];
+            }
+            else
+            {
+                if ([_testViewController2 isShown]) {
+                    [_testViewController2 dismissViewOnSuperView];
+                }
+                else if ([_testViewController3 isShown])
+                {
+                    [_testViewController3 dismissViewOnSuperView];
+                }
+                else if ([_testViewController1 isShown])
+                {
+                    [_testViewController1 dismissViewOnSuperView];
+                }
+                
+                [_testViewController4 showViewOn:_mainView];
+            }
             break;
+        }
         default:
             break;
     }
